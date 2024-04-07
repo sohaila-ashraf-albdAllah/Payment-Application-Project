@@ -2,6 +2,6 @@
 
 int main()
 {
-	printf("gcvjhzvcjhavcjhab");
+	printf("check git");
 	return 0;
 }
