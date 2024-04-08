@@ -1,8 +1,8 @@
-#pragma once
-
 //Header guard 
 #ifndef CARD_H
 #define CARD_H
+
+#include <stdint.h>
 
 typedef struct ST_cardData_t
 {
