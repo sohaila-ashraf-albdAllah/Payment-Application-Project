@@ -89,33 +89,33 @@ void appStart()
 			transactionData.cardHolderData = cardData;
 			transactionData.terminalData = terminalData;
 
-			//// Server Part
-			//serverReturn = recieveTransactionData(&transactionData);
-			//switch (serverReturn)
-			//{
-			//case DECLINED_STOLEN_CARD:
-			//	printf("STOLEN CARD!! \n");
-			//	break;
+			// Server Part
+			serverReturn = recieveTransactionData(&transactionData);
+			switch (serverReturn)
+			{
+			case DECLINED_STOLEN_CARD:
+				printf("STOLEN CARD!! \n");
+				break;
 
-			//case DECLINED_INSUFFECIENT_FUND:
-			//	printf("INSUFFECIENT FUND.\n");
-			//	break;
+			case DECLINED_INSUFFECIENT_FUND:
+				printf("INSUFFECIENT FUND.\n");
+				break;
 
-			//case ACCOUNT_NOT_FOUND:
-			//	printf("ACCOUNT NOT FOUND\n");
-			//	break;
+			case ACCOUNT_NOT_FOUND:
+				printf("ACCOUNT NOT FOUND\n");
+				break;
 
-			//case INTERNAL_SERVER_ERROR:
-			//	printf("INTERNAL SERVER ERROR\n");
-			//	break;
+			case INTERNAL_SERVER_ERROR:
+				printf("INTERNAL SERVER ERROR\n");
+				break;
 
-			//case APPROVED:
-			//	printf("Transaction is approved.\n");
-			//	//printf("Updating Data Base Accounts ...\n");
-			//	//updateDataBaseAcounts();
-			//	printf("Saving transaction ...\n");
-			//	break;
-			//}
+			case APPROVED:
+				printf("Transaction is approved.\n");
+				//printf("Updating Data Base Accounts ...\n");
+				//updateDataBaseAcounts();
+				printf("Saving transaction ...\n");
+				break;
+			}
 			break;
 		case 0:
 			printf("==============================================================================\n");

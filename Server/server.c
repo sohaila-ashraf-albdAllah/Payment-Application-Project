@@ -220,16 +220,16 @@ EN_serverError_t saveTransaction(ST_transaction_t* transaction) {
 }
 
 ///////////////////////////// Implement listSavedTransactions function //////////////////////////////////////////////
-void listSavedTransactions(void) {
-   printf("List of Saved Transactions:\n");
-   for (int i = 0; i < transactionCount; i++) {
-       printf("Transaction %d:\n", transactionDB[i].transactionSequenceNumber);
-       // Print transaction details (you can adjust this based on your transaction structure)
-       printf("  Card Number: %s\n", transactionDB[i].cardHolderData.primaryAccountNumber);
-       printf("  Amount: %.2f\n", transactionDB[i].terminalData.transAmount);
-       printf("\n");
-   }
-}
+//void listSavedTransactions(void) {
+//   printf("List of Saved Transactions:\n");
+//   for (int i = 0; i < transactionCount; i++) {
+//       printf("Transaction %d:\n", transactionDB[i].transactionSequenceNumber);
+//       // Print transaction details (you can adjust this based on your transaction structure)
+//       printf("  Card Number: %s\n", transactionDB[i].cardHolderData.primaryAccountNumber);
+//       printf("  Amount: %.2f\n", transactionDB[i].terminalData.transAmount);
+//       printf("\n");
+//   }
+//}
 
 ///////////////////////////// Implement saveTransactionTest function //////////////////////////////////////////////
 void saveTransactionTest(void) {
@@ -306,32 +306,32 @@ void listSavedTransactions(void)
 }
 
 ///////////////////////////// Implement listSavedTransactionsTest function //////////////////////////////////////////////
-void listSavedTransactionsTest(void)
-{
-   printf("Tester Name: Mohamed Ibrahim\n");
-   printf("Function Name: listSavedTransactions\n\n");
-
-   // Test Case 1: Happy-case scenario (transactions present in the database)
-   printf("Test Case 1:\n");
-   printf("Input Data:\n");
-   printf("  Transaction database contains transactions\n");
-   // Assuming the transaction database has valid transactions
-   printf("Expected Result: Transactions should be printed in the specified format\n");
-   printf("Actual Result:\n");
-   listSavedTransactions();
-   printf("\n");
-
-   // Test Case 2: No transactions in the database
-   printf("Test Case 2:\n");
-   printf("Input Data:\n");
-   printf("  Transaction database is empty\n");
-   // Clear the transaction database
-   for (int i = 0; i < 255; i++)
-   {
-       transactionDB[i].transactionSequenceNumber = 0;
-   }
-   printf("Expected Result: No transactions should be printed\n");
-   printf("Actual Result:\n");
-   listSavedTransactions();
-   printf("\n");
-}
+//void listSavedTransactionsTest(void)
+//{
+//   printf("Tester Name: Mohamed Ibrahim\n");
+//   printf("Function Name: listSavedTransactions\n\n");
+//
+//   // Test Case 1: Happy-case scenario (transactions present in the database)
+//   printf("Test Case 1:\n");
+//   printf("Input Data:\n");
+//   printf("  Transaction database contains transactions\n");
+//   // Assuming the transaction database has valid transactions
+//   printf("Expected Result: Transactions should be printed in the specified format\n");
+//   printf("Actual Result:\n");
+//   listSavedTransactions();
+//   printf("\n");
+//
+//   // Test Case 2: No transactions in the database
+//   printf("Test Case 2:\n");
+//   printf("Input Data:\n");
+//   printf("  Transaction database is empty\n");
+//   // Clear the transaction database
+//   for (int i = 0; i < 255; i++)
+//   {
+//       transactionDB[i].transactionSequenceNumber = 0;
+//   }
+//   printf("Expected Result: No transactions should be printed\n");
+//   printf("Actual Result:\n");
+//   listSavedTransactions();
+//   printf("\n");
+//}
