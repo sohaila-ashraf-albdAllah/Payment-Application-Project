@@ -1,5 +1,7 @@
 #ifndef TERMINAL_H_INCLUDED
 #define TERMINAL_H_INCLUDED
+#include <stdint.h>
+#include "../Card/card.h"
 
 typedef struct ST_terminalData_t
 {

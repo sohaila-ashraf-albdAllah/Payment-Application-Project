@@ -1,7 +1,5 @@
 #include "server.h"
 #include "../Terminal/terminal.h"
-#include "../Terminal/terminal.h"
-
 #define MAX_TRANS 255
 
 
@@ -19,18 +17,12 @@ ST_accountsDB_t accountsDB[MAX_TRANS] =
 	{ 10000.0, BLOCKED, "2652623873444840" }
 };
 
-
-
-
-
-
 // Global array to store transactions
 ST_transaction_t transactionDB[MAX_TRANS] = { 0 };
 int transactionCount = 0; // Variable to track the number of transactions
 
 /////////////////////////////implement recieveTransactionData function ////////////////////////////////////////////// 
-
-EN_transState_t recieveTransactionData (ST_transaction_t)* transData) {
+EN_transState_t recieveTransactionData (ST_transaction_t* transData) {
     // 1. Validate card existence
     int accountIndex = isValidAccount(&transData->cardHolderData, accountsDB);
     if (accountIndex == -1) {
