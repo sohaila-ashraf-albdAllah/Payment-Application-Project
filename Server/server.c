@@ -76,7 +76,70 @@ EN_transState_t recieveTransactionData(ST_transaction_t* transData) {
 }
 
 
+void recieveTransactionDataTest(void)
+{
+    printf("Tester Name: Amr WAHBA \n");
+    printf("Function Name: recieveTransactionData\n\n");
+
+    // Test Case 1: Happy-case scenario (valid account, sufficient funds)
+    printf("Test Case 1:\n");
+    printf("Input Data:\n");
+    printf("  Account exists, sufficient funds\n");
+    // Create a dummy transaction for testing
+    ST_transaction_t happyCaseTransaction =
+    {
+        .cardHolderData = {
+            .primaryAccountNumber = "8989374615436851",
+        },
+        .terminalData = {
+            .transAmount = 500.0,
+        },
+    };
+    printf("Expected Result: Transaction approved!\n");
+    EN_transState_t result1 = recieveTransactionData(&happyCaseTransaction);
+    printf("Actual Result: ");
+    if (result1 == APPROVED)
+    {
+        printf("Transaction approved!\n");
+    }
+    else
+    {
+        printf("Transaction not approved.\n");
+    }
+    printf("\n");
+
+
+    // Test Case 2: Account doesn't exist
+    printf("Test Case 2:\n");
+    printf("Input Data:\n");
+    printf("  Account does not exist\n");
+    ST_transaction_t accountNotFoundTransaction =
+    {
+        .cardHolderData = {
+            .primaryAccountNumber = "1234567890123456",  // Invalid account number
+        },
+        .terminalData = {
+            .transAmount = 1000.0,
+        },
+    };
+    printf("Expected Result: Transaction declined: Fraudulent card.\n");
+    EN_transState_t result2 = recieveTransactionData(&accountNotFoundTransaction);
+    printf("Actual Result: ");
+    if (result2 == FRAUD_CARD)
+    {
+        printf("Transaction declined: Fraudulent card.\n");
+    }
+    else
+    {
+        printf("Transaction not declined as expected.\n");
+    }
+    printf("\n");
+
+}
+
+
 /////////////////////////////implement isValidAccount function //////////////////////////////////////////////
+
 EN_serverError_t isValidAccount(ST_cardData_t* cardData, ST_accountsDB_t* accountRefrence) {
    // Iterate through accounts to find matching PAN
    for (int i = 0; i < MAX_TRANS; i++) {
@@ -203,6 +266,7 @@ void isAmountAvailableTest(void) {
 }
 
 ///////////////////////////// Implement saveTransaction function //////////////////////////////////////////////
+
 EN_serverError_t saveTransaction(ST_transaction_t* transaction) {
    // Check if there is space available in the transactions database
    if (transactionCount >= MAX_TRANS) {
@@ -220,7 +284,8 @@ EN_serverError_t saveTransaction(ST_transaction_t* transaction) {
 }
 
 ///////////////////////////// Implement listSavedTransactions function //////////////////////////////////////////////
-void listSavedTransactions(void) {
+
+void listsTransactions(void) {
    printf("List of Saved Transactions:\n");
    for (int i = 0; i < transactionCount; i++) {
        printf("Transaction %d:\n", transactionDB[i].transactionSequenceNumber);
@@ -232,6 +297,7 @@ void listSavedTransactions(void) {
 }
 
 ///////////////////////////// Implement saveTransactionTest function //////////////////////////////////////////////
+
 void saveTransactionTest(void) {
    printf("Tester Name: Mohamed Ibrahim\n");
    printf("Function Name: saveTransaction\n\n");
@@ -254,6 +320,7 @@ void saveTransactionTest(void) {
 }
 
 ///////////////////////////// Implement listSavedTransactions function //////////////////////////////////////////////
+
 void listSavedTransactions(void)
 {
    if (totalNumOfTransactions == 0)
@@ -306,6 +373,7 @@ void listSavedTransactions(void)
 }
 
 ///////////////////////////// Implement listSavedTransactionsTest function //////////////////////////////////////////////
+
 void listSavedTransactionsTest(void)
 {
    printf("Tester Name: Mohamed Ibrahim\n");
