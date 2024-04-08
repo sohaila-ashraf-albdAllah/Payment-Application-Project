@@ -16,13 +16,13 @@ void appStart()
 	EN_transState_t serverReturn;
 	EN_cardError_t cardReturn;
 
-    printf("--------------------- Welcome to our Payment Application ---------------------\n");
-    printf("==============================================================================\n");
+	printf("--------------------- Welcome to our Payment Application ---------------------\n");
+	printf("==============================================================================\n");
 	while (true)
 	{
 		int userChoice = -1;
 		printf("Enter 0 to Exit and 1 to enter your data\n");
-		while (scanf_s("%d", &userChoice) != 1) 
+		while (scanf_s("%d", &userChoice) != 1)
 		{
 			printf("Invalid input. Please enter an integer (0 OR 1)\n");
 			printf("==============================================================================\n");

@@ -1,8 +1,95 @@
 ﻿  app.c
-E:\VisualStudio\Embedded_Project_1\Application\app.c(10,16): warning C4101: 'cardData': unreferenced local variable
-E:\VisualStudio\Embedded_Project_1\Application\app.c(15,17): warning C4101: 'cardReturn': unreferenced local variable
-E:\VisualStudio\Embedded_Project_1\Application\app.c(12,19): warning C4101: 'transactionData': unreferenced local variable
-E:\VisualStudio\Embedded_Project_1\Application\app.c(11,20): warning C4101: 'terminalData': unreferenced local variable
-E:\VisualStudio\Embedded_Project_1\Application\app.c(14,19): warning C4101: 'serverReturn': unreferenced local variable
-E:\VisualStudio\Embedded_Project_1\Application\app.c(13,21): warning C4101: 'terminalReturn': unreferenced local variable
-  Embedded_Project_1.vcxproj -> E:\VisualStudio\Embedded_Project_1\x64\Debug\Embedded_Project_1.exe
+  server.c
+E:\VisualStudio\Embedded_Project_1\Server\server.c(33,58): error C2143: syntax error: missing '{' before '*'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(33,69): error C2059: syntax error: ')'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(33,71): error C2054: expected '(' to follow 'transData'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(65,5): warning C4013: 'printf' undefined; assuming extern returning int
+E:\VisualStudio\Embedded_Project_1\Server\server.c(74,5): warning C4013: 'strcpy' undefined; assuming extern returning int
+E:\VisualStudio\Embedded_Project_1\Server\server.c(75,28): error C2039: 'transactionAmount': is not a member of 'ST_terminalData_t'
+  E:\VisualStudio\Embedded_Project_1\Terminal\terminal.h(6,16):
+  see declaration of 'ST_terminalData_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(86,28): error C2039: 'transactionAmount': is not a member of 'ST_terminalData_t'
+  E:\VisualStudio\Embedded_Project_1\Terminal\terminal.h(6,16):
+  see declaration of 'ST_terminalData_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(100,13): warning C4013: 'strcmp' undefined; assuming extern returning int
+E:\VisualStudio\Embedded_Project_1\Server\server.c(167,50): error C2146: syntax error: missing ')' before identifier 'terminalData'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(167,50): error C2061: syntax error: identifier 'terminalData'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(167,50): error C2059: syntax error: ';'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(167,62): error C2059: syntax error: ','
+E:\VisualStudio\Embedded_Project_1\Server\server.c(167,97): error C2059: syntax error: ')'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(180,19): error C2065: 'ST_terminal_t': undeclared identifier
+E:\VisualStudio\Embedded_Project_1\Server\server.c(180,19): error C2146: syntax error: missing ';' before identifier 'testTerminal'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(180,32): error C2065: 'testTerminal': undeclared identifier
+E:\VisualStudio\Embedded_Project_1\Server\server.c(180,34): error C2059: syntax error: '{'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(188,67): error C2065: 'testTerminal': undeclared identifier
+E:\VisualStudio\Embedded_Project_1\Server\server.c(188,55): warning C4047: 'function': 'ST_terminalData_t *' differs in levels of indirection from 'int'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(188,55): warning C4024: 'isAmountAvailable': different types for formal and actual parameter 1
+E:\VisualStudio\Embedded_Project_1\Server\server.c(195,17): error C2065: 'testTerminal': undeclared identifier
+E:\VisualStudio\Embedded_Project_1\Server\server.c(195,18): error C2224: left of '.amount' must have struct/union type
+E:\VisualStudio\Embedded_Project_1\Server\server.c(197,50): error C2065: 'testTerminal': undeclared identifier
+E:\VisualStudio\Embedded_Project_1\Server\server.c(197,38): warning C4047: 'function': 'ST_terminalData_t *' differs in levels of indirection from 'int'
+E:\VisualStudio\Embedded_Project_1\Server\server.c(197,38): warning C4024: 'isAmountAvailable': different types for formal and actual parameter 1
+E:\VisualStudio\Embedded_Project_1\Server\server.c(207,28): error C2065: 'SERVER_ERROR': undeclared identifier
+E:\VisualStudio\Embedded_Project_1\Server\server.c(211,18): error C2039: 'sequenceNumber': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(225,54): error C2039: 'sequenceNumber': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(228,66): error C2039: 'amount': is not a member of 'ST_terminalData_t'
+  E:\VisualStudio\Embedded_Project_1\Terminal\terminal.h(6,16):
+  see declaration of 'ST_terminalData_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(229,51): error C2039: 'transactionStatus': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(247,34): error C2039: 'amount': is not a member of 'ST_terminalData_t'
+  E:\VisualStudio\Embedded_Project_1\Terminal\terminal.h(6,16):
+  see declaration of 'ST_terminalData_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(248,21): error C2039: 'transactionStatus': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(261,6): error C2084: function 'void listSavedTransactions(void)' already has a body
+  E:\VisualStudio\Embedded_Project_1\Server\server.c(222,6):
+  see previous definition of 'listSavedTransactions'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(265,70): error C2039: 'sequenceNumber': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(267,59): error C2039: 'transactionDate': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(268,63): error C2039: 'transactionAmount': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(269,60): error C2039: 'transactionState': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(270,64): error C2039: 'terminalMaxAmount': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(271,58): error C2039: 'cardHolderName': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(272,46): error C2039: 'pan': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+E:\VisualStudio\Embedded_Project_1\Server\server.c(273,63): error C2039: 'cardExpirationDate': is not a member of 'ST_transaction_t'
+  E:\VisualStudio\Embedded_Project_1\Server\server.h(15,16):
+  see declaration of 'ST_transaction_t'
+  
+  Generating Code...
