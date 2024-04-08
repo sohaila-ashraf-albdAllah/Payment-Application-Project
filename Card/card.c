@@ -3,23 +3,13 @@
 
 EN_cardError_t getCardHolderName(ST_cardData_t *cardData)
 {
-    char name[25];
-    for (uint8_t i = 0; i < 25; i++)
-    {
-        name[i] = '\0';
-    }
-
+    char name[25] = {0};
     printf("Please Enter Your Name [20-24] characters : ");
-    char ch;
-    uint8_t i = 0;
-    while ((ch = getchar()) != '\n')
-    {
-        name[i] = ch;
-        i++;
-    }
+    fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = '\0'; // Removing newline character
 
     int len = strlen(name);
-    if (len == 0 || len > 24 || len < 20)
+    if (len < 20 || len > 24)
     {
         return WRONG_NAME;
     }
@@ -32,29 +22,18 @@ EN_cardError_t getCardHolderName(ST_cardData_t *cardData)
 
 EN_cardError_t getCardExpiryDate(ST_cardData_t *cardData)
 {
-
-    char expDate[100];
-    uint8_t cardMonth, cardYear;
-    for (uint8_t i = 0; i < 100; i++)
-    {
-        expDate[i] = '\0';
-    }
-
+    char expDate[6] = {0};
     printf("Please Enter Your Card Expiry Date in [MM/YY] Format : ");
-    fseek(stdin, 0, SEEK_END);
-    scanf_s("%s", expDate);
+    fgets(expDate, sizeof(expDate), stdin);
+    expDate[strcspn(expDate, "\n")] = '\0'; // Removing newline character
 
-    if (strlen(expDate) != 5)
-    {
-        return WRONG_EXP_DATE;
-    }
-    else if (expDate[2] != '/')
+    if (strlen(expDate) != 5 || expDate[2] != '/')
     {
         return WRONG_EXP_DATE;
     }
 
-    cardMonth = (expDate[0] - '0') * 10 + (expDate[1] - '0');
-    cardYear = (expDate[3] - '0') * 10 + (expDate[4] - '0');
+    int cardMonth = atoi(expDate);
+    int cardYear = atoi(expDate + 3);
 
     if ((cardMonth > 12 || cardMonth < 1) || (cardYear < 0 || cardYear > 99))
     {
@@ -66,95 +45,37 @@ EN_cardError_t getCardExpiryDate(ST_cardData_t *cardData)
     return CARD_OK;
 }
 
-
-int isLuhnValid(const char *number)
+EN_cardError_t getCardPAN(ST_cardData_t* cardData)
 {
-    int len = strlen(number);
-    int sum = 0;
-    int alternate = 0;
+	char panNumber[30];
+	for (int i = 0; i < 30; i++)
+	{
+		panNumber[i] = '\0';
+	}
 
-    for (int i = len - 1; i >= 0; i--)
-    {
-        int digit = number[i] - '0';
+	printf("Please Enter Your PAN Number [16-19] characters : ");
 
-        if (alternate)
-        {
-            digit *= 2;
-            if (digit > 9)
-            {
-                digit -= 9;
-            }
-        }
+	char ch;
+	int i = 0;
+	fseek(stdin, 0, SEEK_END);
+	while ((ch = getchar()) != '\n')
+	{
+		panNumber[i] = ch;
+		i++;
+	}
 
-        sum += digit;
-        alternate = !alternate;
-    }
-
-    return (sum % 10 == 0);
+	int len = strlen(panNumber);
+	if (!panNumber) return WRONG_PAN;
+	if (len > 19 || len < 16)
+	{
+		return WRONG_PAN;
+	}
+	else
+	{
+			for (int i = 0; i <= len; i++)
+			{
+				cardData->primaryAccountNumber[i] = panNumber[i];
+			}
+			return CARD_OK;
+	}
 }
-
-EN_cardError_t getCardPAN(ST_cardData_t *cardData)
-{
-    char panNumber[30];
-    for (uint8_t i = 0; i < 30; i++)
-    {
-        panNumber[i] = '\0';
-    }
-
-    printf("Please Enter Your PAN Number [16-19] characters : ");
-
-    char ch;
-    uint8_t i = 0;
-    fseek(stdin, 0, SEEK_END);
-    while ((ch = getchar()) != '\n')
-    {
-        panNumber[i] = ch;
-        i++;
-    }
-
-    int len = strlen(panNumber);
-    if (len < 16 || len > 19)
-    {
-        return WRONG_PAN;
-    }
-    else if (!isLuhnValid(panNumber))
-    {
-        return WRONG_PAN;
-    }
-
-    strcpy(cardData->primaryAccountNumber, panNumber);
-    return CARD_OK;
-}
-
-//void setCardState(ST_cardData_t *cardData, EN_cardState_t newState)
-//{
-//
-//}
-
-//int main()
-//{
-//    ST_cardData_t cardData;
-//    EN_cardError_t result;
-//
-//    result = getCardHolderName(&cardData);
-//    if (result != CARD_OK)
-//    {
-//        printf("Error: Invalid card holder name.\n");
-//        return 1;
-//    }
-//
-//    result = getCardExpiryDate(&cardData);
-//    if (result != CARD_OK)
-//    {
-//        printf("Error: Invalid card expiry date.\n");
-//        return 1;
-//    }
-//
-//    result = getCardPAN(&cardData);
-//    if (result != CARD_OK)
-//    {
-//        printf("Error: Invalid PAN.\n");
-//        return 1;
-//    }
-//    return 0;
-//}
