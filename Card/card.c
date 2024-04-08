@@ -26,7 +26,7 @@ EN_cardError_t getCardHolderName(ST_cardData_t *cardData)
     else
     {
         strcpy(cardData->cardHolderName, name);
-        return cardOk;
+        return CARD_OK;
     }
 }
 
@@ -63,7 +63,7 @@ EN_cardError_t getCardExpiryDate(ST_cardData_t *cardData)
 
     strcpy(cardData->cardExpirationDate, expDate);
 
-    return cardOk;
+    return CARD_OK;
 }
 
 
@@ -123,43 +123,38 @@ EN_cardError_t getCardPAN(ST_cardData_t *cardData)
     }
 
     strcpy(cardData->primaryAccountNumber, panNumber);
-    return cardOk;
+    return CARD_OK;
 }
 
-void setCardState(ST_cardData_t *cardData, EN_cardState_t newState)
-{
-
-}
+//void setCardState(ST_cardData_t *cardData, EN_cardState_t newState)
+//{
+//
+//}
 
 int main()
 {
     ST_cardData_t cardData;
-
-
     EN_cardError_t result;
 
     result = getCardHolderName(&cardData);
-    if (result != cardOk)
+    if (result != CARD_OK)
     {
         printf("Error: Invalid card holder name.\n");
         return 1;
     }
 
     result = getCardExpiryDate(&cardData);
-    if (result != cardOk)
+    if (result != CARD_OK)
     {
         printf("Error: Invalid card expiry date.\n");
         return 1;
     }
 
     result = getCardPAN(&cardData);
-    if (result != cardOk)
+    if (result != CARD_OK)
     {
         printf("Error: Invalid PAN.\n");
         return 1;
     }
-
-
-
     return 0;
 }

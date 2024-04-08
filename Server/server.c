@@ -16,18 +16,12 @@ ST_accountsDB_t accountsDB[MAX_TRANS] =
 	{ 10000.0, BLOCKED, "2652623873444840" }
 };
 
-
-
-
-
-
 // Global array to store transactions
 ST_transaction_t transactionDB[MAX_TRANS] = { 0 };
 uint32_t transactionCount = 0; // Variable to track the number of transactions
 uint32_t totalNumOfTransactions = 0;
 
 /////////////////////////////implement recieveTransactionData function ////////////////////////////////////////////// 
-
 EN_transState_t recieveTransactionData (ST_transaction_t* transData) {
     // 1. Validate card existence
     int accountIndex = isValidAccount(&transData->cardHolderData, accountsDB);
@@ -83,15 +77,10 @@ void recieveTransactionDataTest(void) {
     strcpy(transData.cardHolderData.primaryAccountNumber, "1234567890123456"); // Non-existent account number
     transData.terminalData.transactionAmount = 2000.0;  // Valid transaction amount
     result = recieveTransactionData(&transData);  // Call the function
-    printf("Actual Result: %d\n\n", result);  // Print actual result
-
-    
+    printf("Actual Result: %d\n\n", result);  // Print actual result   
 }
 
-
 /////////////////////////////implement isValidAccount function //////////////////////////////////////////////
-
-
 EN_serverError_t isValidAccount (ST_cardData_t* cardData, ST_accountsDB_t* accountRefrence) {
     // Iterate through accounts to find matching PAN
     for (int i = 0; i < MAX_TRANS; i++) {
@@ -124,9 +113,7 @@ void isValidAccountTest(void) {
     printf("Actual Result: %s\n\n", result == ACCOUNT_NOT_FOUND ? "ACCOUNT_NOT_FOUND" : "Error");
 }
 
-
 /////////////////////////////implement isBlockedAccount function //////////////////////////////////////////////
-
 EN_serverError_t isBlockedAccount (ST_accountsDB_t* accountRefrence) {
     if (accountRefrence->state == RUNNING) {
         return SERVER_OK;  // Account is running
@@ -157,7 +144,6 @@ void isBlockedAccountTest(void) {
     result = isBlockedAccount(&blockedAccount);
     printf("Actual Result: %s\n\n", result == BLOCKED_ACCOUNT ? "BLOCKED_ACCOUNT" : "Error");
 }
-
 
 /////////////////////////////////////Implement isAmountAvailable function//////////////////////////////////////////
 
@@ -214,12 +200,9 @@ void isAmountAvailableTest(void) {
     else
         printf("Actual Result: Low Balance\n");
     printf("---------------------------\n");
-
 }
 
-
 ///////////////////////////// Implement saveTransaction function //////////////////////////////////////////////
-
 EN_serverError_t saveTransaction(ST_transaction_t* transaction) {
     // Check if there is space available in the transactions database
     if (transactionCount >= MAX_TRANS) {
@@ -237,7 +220,6 @@ EN_serverError_t saveTransaction(ST_transaction_t* transaction) {
 }
 
 ///////////////////////////// Implement listSavedTransactions function //////////////////////////////////////////////
-
 void listSavedTransactions(void) {
     printf("List of Saved Transactions:\n");
     for (int i = 0; i < transactionCount; i++) {
@@ -251,7 +233,6 @@ void listSavedTransactions(void) {
 }
 
 ///////////////////////////// Implement saveTransactionTest function //////////////////////////////////////////////
-
 void saveTransactionTest(void) {
     printf("Tester Name: Mohamed Ibrahim\n");
     printf("Function Name: saveTransaction\n\n");
@@ -272,11 +253,9 @@ void saveTransactionTest(void) {
     printf("Test Case 2:\n");
     printf("Input Data: Maximum transactions reached\n");
     printf("Expected Result: SERVER_ERROR\n");
-    
 }
 
 ///////////////////////////// Implement listSavedTransactions function //////////////////////////////////////////////
-
 void listSavedTransactions(void)
 {
 if (totalNumOfTransactions==0)
@@ -329,7 +308,6 @@ if (totalNumOfTransactions==0)
 }    
 
 ///////////////////////////// Implement listSavedTransactionsTest function //////////////////////////////////////////////
-
 void listSavedTransactionsTest(void)
 {
     printf("Tester Name: Mohamed Ibrahim\n");
@@ -359,6 +337,3 @@ void listSavedTransactionsTest(void)
     listSavedTransactions();
     printf("\n");
 }
-
-
-
