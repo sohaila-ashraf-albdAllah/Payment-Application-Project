@@ -1,57 +1,8 @@
 ﻿  app.c
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(17,5): error C2061: syntax error: identifier 'ST_terminalData_t'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(18,21): error C2061: syntax error: identifier 'transState'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(18,21): error C2059: syntax error: ';'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(20,1): error C2059: syntax error: '}'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(45,17): error C2061: syntax error: identifier 'recieveTransactionData'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(45,17): error C2059: syntax error: ';'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(45,56): error C2143: syntax error: missing ')' before '*'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(45,56): error C2143: syntax error: missing '{' before '*'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(45,67): error C2059: syntax error: ')'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(48,53): error C2143: syntax error: missing ')' before '*'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(48,53): error C2143: syntax error: missing '{' before '*'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(48,65): error C2371: 'ST_accountsDB_t': redefinition; different basic types
-  (compiling source file 'Application/app.c')
-  E:\VisualStudio\Embedded_Project_1\SERVER\server.h(43,3):
-  see declaration of 'ST_accountsDB_t'
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(48,80): error C2143: syntax error: missing ';' before '*'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(48,97): error C2059: syntax error: ')'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(49,50): error C2143: syntax error: missing ')' before '*'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(49,50): error C2143: syntax error: missing '{' before '*'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\SERVER\server.h(49,61): error C2059: syntax error: ')'
-  (compiling source file 'Application/app.c')
-  
-E:\VisualStudio\Embedded_Project_1\Application\app.c(12,19): error C2065: 'ST_transaction_t': undeclared identifier
-E:\VisualStudio\Embedded_Project_1\Application\app.c(12,19): error C2146: syntax error: missing ';' before identifier 'transactionData'
-E:\VisualStudio\Embedded_Project_1\Application\app.c(12,34): error C2065: 'transactionData': undeclared identifier
+E:\VisualStudio\Embedded_Project_1\Application\app.c(10,16): warning C4101: 'cardData': unreferenced local variable
+E:\VisualStudio\Embedded_Project_1\Application\app.c(15,17): warning C4101: 'cardReturn': unreferenced local variable
+E:\VisualStudio\Embedded_Project_1\Application\app.c(12,19): warning C4101: 'transactionData': unreferenced local variable
+E:\VisualStudio\Embedded_Project_1\Application\app.c(11,20): warning C4101: 'terminalData': unreferenced local variable
+E:\VisualStudio\Embedded_Project_1\Application\app.c(14,19): warning C4101: 'serverReturn': unreferenced local variable
+E:\VisualStudio\Embedded_Project_1\Application\app.c(13,21): warning C4101: 'terminalReturn': unreferenced local variable
+  Embedded_Project_1.vcxproj -> E:\VisualStudio\Embedded_Project_1\x64\Debug\Embedded_Project_1.exe
