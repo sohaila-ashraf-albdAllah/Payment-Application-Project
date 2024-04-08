@@ -1,5 +1,5 @@
-#ifndef SERVER_H_INCLUDED
-#define SERVER_H_INCLUDED
+#ifndef SERVER_H
+#define SERVER_H
 
 
 typedef enum EN_transState_t
@@ -9,7 +9,7 @@ typedef enum EN_transState_t
     DECLINED_STOLEN_CARD, 
     FRAUD_CARD, 
     INTERNAL_SERVER_ERROR
-} EN_transStat_t;
+} EN_transState_t;
 
 typedef struct ST_transaction_t
 {
@@ -17,7 +17,7 @@ typedef struct ST_transaction_t
     ST_terminalData_t terminalData;
     EN_transState_t transState;
     uint32_t transactionSequenceNumber;
-} ST_transaction;
+} ST_transaction_t;
 
 typedef enum EN_serverError_t
 {
