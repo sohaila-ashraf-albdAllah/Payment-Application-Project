@@ -18,5 +18,31 @@
     <ClCompile Include="Main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Application\app.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Card\card.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\server.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Terminal\terminal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Application\app.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Card\card.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\server.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Terminal\terminal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

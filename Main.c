@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include "Application/app.h"
 
 int main()
 {
-	printf("check git");
-	return 0;
+    appStart();
+    return 0;
 }
