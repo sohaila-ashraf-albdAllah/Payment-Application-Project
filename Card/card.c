@@ -42,7 +42,7 @@ EN_cardError_t getCardExpiryDate(ST_cardData_t *cardData)
 
     printf("Please Enter Your Card Expiry Date in [MM/YY] Format : ");
     fseek(stdin, 0, SEEK_END);
-    scanf("%s", expDate);
+    scanf_s("%s", expDate);
 
     if (strlen(expDate) != 5)
     {
@@ -131,30 +131,30 @@ EN_cardError_t getCardPAN(ST_cardData_t *cardData)
 //
 //}
 
-int main()
-{
-    ST_cardData_t cardData;
-    EN_cardError_t result;
-
-    result = getCardHolderName(&cardData);
-    if (result != CARD_OK)
-    {
-        printf("Error: Invalid card holder name.\n");
-        return 1;
-    }
-
-    result = getCardExpiryDate(&cardData);
-    if (result != CARD_OK)
-    {
-        printf("Error: Invalid card expiry date.\n");
-        return 1;
-    }
-
-    result = getCardPAN(&cardData);
-    if (result != CARD_OK)
-    {
-        printf("Error: Invalid PAN.\n");
-        return 1;
-    }
-    return 0;
-}
+//int main()
+//{
+//    ST_cardData_t cardData;
+//    EN_cardError_t result;
+//
+//    result = getCardHolderName(&cardData);
+//    if (result != CARD_OK)
+//    {
+//        printf("Error: Invalid card holder name.\n");
+//        return 1;
+//    }
+//
+//    result = getCardExpiryDate(&cardData);
+//    if (result != CARD_OK)
+//    {
+//        printf("Error: Invalid card expiry date.\n");
+//        return 1;
+//    }
+//
+//    result = getCardPAN(&cardData);
+//    if (result != CARD_OK)
+//    {
+//        printf("Error: Invalid PAN.\n");
+//        return 1;
+//    }
+//    return 0;
+//}

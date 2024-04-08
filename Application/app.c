@@ -5,8 +5,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define MAX_AMOUNT 10000
-
 void appStart()
 {
 	ST_cardData_t cardData;
@@ -15,6 +13,8 @@ void appStart()
 	EN_terminalError_t terminalReturn;
 	EN_transState_t serverReturn;
 	EN_cardError_t cardReturn;
+
+	float MAX_AMOUNT = 0.0f;
 
 	printf("--------------------- Welcome to our Payment Application ---------------------\n");
 	printf("==============================================================================\n");
@@ -37,19 +37,19 @@ void appStart()
 			cardReturn = getCardHolderName(&cardData);
 			while (cardReturn == WRONG_NAME)
 			{
-				printf("Please enter valid Name :\n");
+				printf("Please enter valid Name.\n");
 				cardReturn = getCardHolderName(&cardData);
 			}
 			cardReturn = getCardExpiryDate(&cardData);
 			while (cardReturn == WRONG_EXP_DATE)
 			{
-				printf("Please enter valid EXP Date :\n");
+				printf("Please enter valid EXP Date.\n");
 				cardReturn = getCardExpiryDate(&cardData);
 			}
 			cardReturn = getCardPAN(&cardData);
 			while (cardReturn == WRONG_PAN)
 			{
-				printf("Please enter valid PAN Number :\n");
+				printf("Please enter valid PAN Number.\n");
 				cardReturn = getCardPAN(&cardData);
 			}
 
@@ -57,7 +57,7 @@ void appStart()
 			terminalReturn = getTransactionDate(&terminalData);
 			while (terminalReturn == WRONG_DATE)
 			{
-				printf("Please enter valid transaction Date :\n");
+				printf("Please enter valid transaction Date.\n");
 				terminalReturn = getTransactionDate(&terminalData);//** cardData
 			}
 			terminalReturn = isCardExpired(&cardData, &terminalData);
@@ -69,19 +69,19 @@ void appStart()
 			terminalReturn = setMaxAmount(&terminalData, MAX_AMOUNT);
 			while (terminalReturn == INVALID_AMOUNT)
 			{
-				printf("Please enter valid Amount ( MAX_AMOUNT = 10000 ) :\n");
+				printf("Please enter valid Amount.\n");
 				terminalReturn = setMaxAmount(&terminalData, MAX_AMOUNT);
 			}
 			terminalReturn = getTransactionAmount(&terminalData);
 			while (terminalReturn == INVALID_AMOUNT)
 			{
-				printf("Please enter valid Amount ( MAX_AMOUNT = 10000 ) :\n");
+				printf("Please enter valid Amount.\n");
 				terminalReturn = getTransactionAmount(&terminalData);
 			}
 			terminalReturn = isBelowMaxAmount(&terminalData);
 			if (terminalReturn == EXCEED_MAX_AMOUNT)
 			{
-				printf("INVALID exceed maximum amount ( MAX_AMOUNT = 10000 )\n");
+				printf("INVALID exceed maximum amount.\n");
 				return;
 			}
 
@@ -89,33 +89,33 @@ void appStart()
 			transactionData.cardHolderData = cardData;
 			transactionData.terminalData = terminalData;
 
-			// Server Part
-			serverReturn = recieveTransactionData(&transactionData);
-			switch (serverReturn)
-			{
-			case DECLINED_STOLEN_CARD:
-				printf("STOLEN CARD!! \n");
-				break;
+			//// Server Part
+			//serverReturn = recieveTransactionData(&transactionData);
+			//switch (serverReturn)
+			//{
+			//case DECLINED_STOLEN_CARD:
+			//	printf("STOLEN CARD!! \n");
+			//	break;
 
-			case DECLINED_INSUFFECIENT_FUND:
-				printf("INSUFFECIENT FUND.\n");
-				break;
+			//case DECLINED_INSUFFECIENT_FUND:
+			//	printf("INSUFFECIENT FUND.\n");
+			//	break;
 
-			case ACCOUNT_NOT_FOUND:
-				printf("ACCOUNT NOT FOUND\n");
-				break;
+			//case ACCOUNT_NOT_FOUND:
+			//	printf("ACCOUNT NOT FOUND\n");
+			//	break;
 
-			case INTERNAL_SERVER_ERROR:
-				printf("INTERNAL SERVER ERROR\n");
-				break;
+			//case INTERNAL_SERVER_ERROR:
+			//	printf("INTERNAL SERVER ERROR\n");
+			//	break;
 
-			case APPROVED:
-				printf("Transaction is approved.\n");
-				//printf("Updating Data Base Accounts ...\n");
-				//updateDataBaseAcounts();
-				printf("Saving transaction ...\n");
-				break;
-			}
+			//case APPROVED:
+			//	printf("Transaction is approved.\n");
+			//	//printf("Updating Data Base Accounts ...\n");
+			//	//updateDataBaseAcounts();
+			//	printf("Saving transaction ...\n");
+			//	break;
+			//}
 			break;
 		case 0:
 			printf("==============================================================================\n");

@@ -26,8 +26,8 @@ EN_terminalError_t getTransactionDate(ST_terminalData_t* termData) {
     {
         return WRONG_DATE;
     }
-
-    sscanf((const char*)termData->transactionDate, "%2s/%2s/%4s", dayStr, monthStr, yearStr);
+    sscanf_s((const char*)termData->transactionDate, "%2s/%2s/%4s", dayStr, sizeof(dayStr), monthStr, sizeof(monthStr), yearStr, sizeof(yearStr));
+    //sscanf((const char*)termData->transactionDate, "%2s/%2s/%4s", dayStr, monthStr, yearStr);
     day = atoi(dayStr);
     month = atoi(monthStr);
     year = atoi(yearStr);
@@ -61,7 +61,7 @@ EN_terminalError_t isCardExpired(ST_cardData_t* cardData, ST_terminalData_t* ter
 EN_terminalError_t setMaxAmount(ST_terminalData_t* termData, float maxAmount)
 {
 
-    while (scanf("%f", &maxAmount) != 1) {
+    while (scanf_s("%f", &maxAmount) != 1) {
         while (getchar() != '\n');
         printf("Invalid input.\nPlease enter valid Amount:\n");
     }
@@ -74,7 +74,7 @@ EN_terminalError_t setMaxAmount(ST_terminalData_t* termData, float maxAmount)
 }
 EN_terminalError_t getTransactionAmount(ST_terminalData_t* termData)
 {
-    while (scanf("%f", &termData->transAmount) != 1) {
+    while (scanf_s("%f", &termData->transAmount) != 1) {
         while (getchar() != '\n');
         printf("Invalid input.\nPlease enter valid Amount:\n");
     }
