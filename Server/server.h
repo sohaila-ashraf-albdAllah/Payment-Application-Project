@@ -50,4 +50,12 @@ EN_serverError_t isAmountAvailable(ST_terminalData_t* termData, ST_accountsDB_t*
 EN_serverError_t saveTransaction(ST_transaction_t* transData);
 void listSavedTransactions(void);
 
+
+//_____________________| testing Functions |__________________________________//
+void isBlockedAccountTest(void);
+void listSavedTransactions(void);
+void saveTransactionTest(void);
+void isValidAccountTest(void);
+void isAmountAvailableTest(void);
+
 #endif
