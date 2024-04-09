@@ -139,6 +139,9 @@
     <ClInclude Include="Server\server.h" />
     <ClInclude Include="Terminal\terminal.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Screenshots\screeeeen.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
