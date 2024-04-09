@@ -48,11 +48,8 @@ EN_cardError_t getCardExpiryDate(ST_cardData_t *cardData)
 
 EN_cardError_t getCardPAN(ST_cardData_t* cardData)
 {
-	char panNumber[30];
-	for (int i = 0; i < 30; i++)
-	{
-		panNumber[i] = '\0';
-	}
+	char panNumber[30]={0};
+	
 
 	printf("Please Enter Your PAN Number [16-19] characters : ");
 
