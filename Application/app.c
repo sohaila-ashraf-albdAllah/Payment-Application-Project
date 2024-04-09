@@ -121,8 +121,6 @@ void appStart()
 
 			case APPROVED:
 				printf("\nTransaction is approved.\n");
-				//printf("Updating Data Base Accounts ...\n");
-				//updateDataBaseAcounts();
 				printf("\nSaving transaction ...\n");
 				break;
 			}
