@@ -58,11 +58,6 @@ void appStart()
 				printf("Please enter valid PAN Number.\n");
 				cardReturn = getCardPAN(&cardData);
 			}
-			//Card Testing functions
-			getCardHolderNameTest();
-			getCardExpiryDateTest();
-			getCardPANTest();
-
 
 			//Terminal part
 			terminalReturn = getTransactionDate(&terminalData);
@@ -99,11 +94,6 @@ void appStart()
 				printf("\nINVALID exceed maximum amount.\n");
 				return;
 			}
-			//Terminal Testing functions Declaration
-			 getTransactionAmountTest();
-			 isBelowMaxAmountTest();
-			 setMaxAmountTest();
-			 getTransactionDateTest();
 
 			// Saving data
 			transactionData.cardHolderData = cardData;
@@ -136,13 +126,6 @@ void appStart()
 				printf("\nSaving transaction ...\n");
 				break;
 			}
-
-			//Server Testing functions
-			isBlockedAccountTest();
-			listSavedTransactions();
-			saveTransactionTest();
-			isValidAccountTest();
-			isAmountAvailableTest();
 			break;
 		case 0:
 			while (getchar() != '\n') {}
