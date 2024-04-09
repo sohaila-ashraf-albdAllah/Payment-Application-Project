@@ -32,23 +32,29 @@ void appStart()
 		switch (userChoice)
 		{
 		case 1:
+			while (getchar() != '\n') {}
 			printf("==============================================================================\n");
 			//Card part
 			cardReturn = getCardHolderName(&cardData);
 			while (cardReturn == WRONG_NAME)
 			{
+				printf("**************************************************************************\n");
 				printf("Please enter valid Name.\n");
 				cardReturn = getCardHolderName(&cardData);
 			}
 			cardReturn = getCardExpiryDate(&cardData);
 			while (cardReturn == WRONG_EXP_DATE)
 			{
+				while (getchar() != '\n') {}
+				printf("**************************************************************************\n");
 				printf("Please enter valid EXP Date.\n");
 				cardReturn = getCardExpiryDate(&cardData);
 			}
 			cardReturn = getCardPAN(&cardData);
 			while (cardReturn == WRONG_PAN)
 			{
+				while (getchar() != '\n') {}
+				printf("**************************************************************************\n");
 				printf("Please enter valid PAN Number.\n");
 				cardReturn = getCardPAN(&cardData);
 			}
@@ -57,31 +63,35 @@ void appStart()
 			terminalReturn = getTransactionDate(&terminalData);
 			while (terminalReturn == WRONG_DATE)
 			{
+				while (getchar() != '\n') {}
+				printf("**************************************************************************\n");
 				printf("Please enter valid transaction Date.\n");
 				terminalReturn = getTransactionDate(&terminalData);//** cardData
 			}
 			terminalReturn = isCardExpired(&cardData, &terminalData);
 			if (terminalReturn == EXPIRED_CARD)
 			{
-				printf("Your Card Expired !\n");
+				printf("\nYour Card Expired !\n");
 				return;
 			}
 			terminalReturn = setMaxAmount(&terminalData, MAX_AMOUNT);
 			while (terminalReturn == INVALID_AMOUNT)
 			{
-				printf("Please enter valid Amount.\n");
+				while (getchar() != '\n') {}
+				printf("\nPlease enter valid Amount.\n");
 				terminalReturn = setMaxAmount(&terminalData, MAX_AMOUNT);
 			}
 			terminalReturn = getTransactionAmount(&terminalData);
 			while (terminalReturn == INVALID_AMOUNT)
 			{
-				printf("Please enter valid Amount.\n");
+				while (getchar() != '\n') {}
+				printf("\nPlease enter valid Amount.\n");
 				terminalReturn = getTransactionAmount(&terminalData);
 			}
 			terminalReturn = isBelowMaxAmount(&terminalData);
 			if (terminalReturn == EXCEED_MAX_AMOUNT)
 			{
-				printf("INVALID exceed maximum amount.\n");
+				printf("\nINVALID exceed maximum amount.\n");
 				return;
 			}
 
@@ -94,34 +104,36 @@ void appStart()
 			switch (serverReturn)
 			{
 			case DECLINED_STOLEN_CARD:
-				printf("STOLEN CARD!! \n");
+				printf("\nSTOLEN CARD!! \n");
 				break;
 
 			case DECLINED_INSUFFECIENT_FUND:
-				printf("INSUFFECIENT FUND.\n");
+				printf("\nINSUFFECIENT FUND.\n");
 				break;
 
 			case ACCOUNT_NOT_FOUND:
-				printf("ACCOUNT NOT FOUND\n");
+				printf("\nACCOUNT NOT FOUND\n");
 				break;
 
 			case INTERNAL_SERVER_ERROR:
-				printf("INTERNAL SERVER ERROR\n");
+				printf("\nINTERNAL SERVER ERROR\n");
 				break;
 
 			case APPROVED:
-				printf("Transaction is approved.\n");
+				printf("\nTransaction is approved.\n");
 				//printf("Updating Data Base Accounts ...\n");
 				//updateDataBaseAcounts();
-				printf("Saving transaction ...\n");
+				printf("\nSaving transaction ...\n");
 				break;
 			}
 			break;
 		case 0:
+			while (getchar() != '\n') {}
 			printf("==============================================================================\n");
 			printf("Thanks to use our Payment application\n");
 			return;
 		default:
+			while (getchar() != '\n') {}
 			printf("==============================================================================\n");
 			printf("Please enter a valid choice (0 OR 1)\n");
 			break;

@@ -8,7 +8,7 @@ EN_terminalError_t getTransactionDate(ST_terminalData_t* termData) {
     int count = 0;
     char dayStr[3], monthStr[3], yearStr[5];
     int day, month, year;
-    printf("Please, Enter a valid transaction Date in the format of dd/mm/yyyy:\n");
+    printf("Please, Enter a valid transaction Date in the format of dd/mm/yyyy: ");
     while ((c = getchar()) != '\n')
     {
         if (count < 11)
@@ -60,11 +60,11 @@ EN_terminalError_t isCardExpired(ST_cardData_t* cardData, ST_terminalData_t* ter
 }
 EN_terminalError_t setMaxAmount(ST_terminalData_t* termData, float maxAmount)
 {
-    printf("Please, Set the Maximum Amount per transaction\n");
+    printf("Please, Set the Maximum Amount per transaction: ");
 
     while (scanf_s("%f", &maxAmount) != 1) {
         while (getchar() != '\n');
-        printf("Invalid input.\nPlease enter a valid Amount:\n");
+        printf("Invalid input.\nPlease enter a valid Amount: ");
     }
     if (maxAmount <= 0)
         return INVALID_MAX_AMOUNT;
@@ -75,10 +75,10 @@ EN_terminalError_t setMaxAmount(ST_terminalData_t* termData, float maxAmount)
 }
 EN_terminalError_t getTransactionAmount(ST_terminalData_t* termData)
 {
-    printf("Please, Enter valid Amount Transaction (don't exceed the max amount):\n");
+    printf("Please, Enter valid Amount Transaction (don't exceed the max amount): ");
     while (scanf_s("%f", &termData->transAmount) != 1) {
         while (getchar() != '\n');
-        printf("Invalid input.\nPlease enter a valid Amount:\n");
+        printf("Invalid input.\nPlease enter a valid Amount: ");
     }
     if (termData->transAmount <= 0)
         return INVALID_AMOUNT;
