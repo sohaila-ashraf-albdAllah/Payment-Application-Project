@@ -159,7 +159,7 @@ EN_terminalError_t setMaxAmount(ST_terminalData_t* termData, float maxAmount)
         return INVALID_MAX_AMOUNT;
     else
         termData->maxTransAmount = maxAmount;
-    return TERMINAL_OK;
+        return TERMINAL_OK;
 
 }
 
