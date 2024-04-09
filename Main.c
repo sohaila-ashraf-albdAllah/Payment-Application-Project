@@ -18,6 +18,7 @@ int main()
 
 
 	////Server Testing functions
+	//recieveTransactionDataTest();
 	//isBlockedAccountTest();
 	//listSavedTransactions();
 	//saveTransactionTest();
