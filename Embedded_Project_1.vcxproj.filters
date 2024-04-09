@@ -48,4 +48,18 @@
   <ItemGroup>
     <Text Include="Screenshots\screeeeen.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Screenshots\card.h file .png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Screenshots\folder structure and application.h file .png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Screenshots\server.h file .png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Screenshots\terminal.h file .png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

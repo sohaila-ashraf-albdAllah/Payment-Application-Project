@@ -1,6 +1,5 @@
 #ifndef SERVER_H
 #define SERVER_H
-
 #include "../Terminal/terminal.h"
 
 typedef enum EN_transState_t

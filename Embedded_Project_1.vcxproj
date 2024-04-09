@@ -142,6 +142,12 @@
   <ItemGroup>
     <Text Include="Screenshots\screeeeen.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Screenshots\card.h file .png" />
+    <Image Include="Screenshots\folder structure and application.h file .png" />
+    <Image Include="Screenshots\server.h file .png" />
+    <Image Include="Screenshots\terminal.h file .png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
